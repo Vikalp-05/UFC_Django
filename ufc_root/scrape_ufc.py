@@ -11,15 +11,22 @@ MAX_WORKERS = 8
 session = requests.Session()
 session.headers["User-Agent"] = "Mozilla/5.0"
 
+def clean(s):
+    return re.sub(r"\s+", " ", (s or "")).strip()
+
+def norm(s):
+    return re.sub(r"[^a-z]+", " ", (s or "").lower()).strip()
+
+def write_json(data, filename):
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+
 def parse_profile(url):
-    r = session.get(url, timeout=TIMEOUT)
-    r.raise_for_status()
-    soup = BeautifulSoup(r.text, "html.parser")
-
-    clean = lambda s: re.sub(r"\s+", " ", (s or "")).strip()
-    norm  = lambda s: re.sub(r"[^a-z]+", " ", (s or "").lower()).strip()
+    soup = BeautifulSoup(session.get(url, timeout=TIMEOUT).text, "html.parser")
     me = urlparse(url).path.strip("/").split("/")[-1].lower()
-
+    
     out = {k: None for k in [
         "Age","Height","Weight","Reach","Leg Reach","Octagon Debut",
         "Fighting Style","Hometown","Record",
