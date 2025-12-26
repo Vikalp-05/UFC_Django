@@ -126,3 +126,37 @@ def parse_profile(url):
             out["Hometown"] = v
 
     out["Fighting Style"] = out["Fighting Style"] or "MMA"
+
+    m = re.search(r"(\d+)\s*-\s*(\d+)(?:\s*-\s*(\d+))?", soup.get_text(" "))
+    if m:
+        out["Record"] = f"{m.group(1)}-{m.group(2)}-{m.group(3) or 0}"
+
+    cmap = {
+        "sig str landed": "Significant Strikes Landed",
+        "sig str absorbed": "Significant Strikes Absorbed",
+        "takedown avg": "Takedown Average",
+        "submission avg": "Submission Average",
+        "sig str defense": "Significant Strike Defense",
+        "takedown defense": "Takedown Defense",
+    }
+    for g in soup.select(".c-stat-compare__group"):
+        lab = g.select_one(".c-stat-compare__label")
+        if not lab:
+            continue
+        key = cmap.get(norm(lab.text))
+        if not key:
+            continue
+
+        m = re.search(r"\d+(?:\.\d+)?", g.get_text(" "))
+        if m:
+            out[key] = m.group(0) + "%" if "Defense" in key else m.group(0)
+
+    for t in soup.select("svg.e-chart-circle title"):
+        txt = clean(t.text).lower()
+        m = re.search(r"\d+(?:\.\d+)?", txt)
+        if not m:
+            continue
+        if "striking accuracy" in txt:
+            out["Striking Accuracy"] = m.group(0) + "%"
+        elif "takedown accuracy" in txt:
+            out["Takedown Accuracy"] = m.group(0) + "%"
