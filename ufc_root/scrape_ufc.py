@@ -87,3 +87,42 @@ def parse_profile(url):
         "Fight 2","Date 2","End Round 2","Time 2","Method 2",
         "Fight 3","Date 3","End Round 3","Time 3","Method 3"
     ]}
+
+    for row in soup.select(".c-bio__field"):
+        lab = row.select_one(".c-bio__label")
+        val = row.select_one(".c-bio__text")
+        if not lab or not val:
+            continue
+
+        k = clean(lab.text).lower().rstrip(":")
+        v = clean(val.text)
+
+        if k == "age":
+            m = re.search(r"\d+", v)
+            out["Age"] = m.group(0) if m else None
+
+        elif k == "height":
+            m = re.search(r"\d+(?:\.\d+)?", v)
+            if m:
+                inches = int(round(float(m.group(0))))
+                out["Height"] = f"{inches//12}' {inches%12}\""
+
+        elif k in ("reach", "leg reach"):
+            m = re.search(r"\d+(?:\.\d+)?", v)
+            if m:
+                out["Reach" if k == "reach" else "Leg Reach"] = f"{int(round(float(m.group(0))))} in"
+
+        elif k == "weight":
+            m = re.search(r"\d+(?:\.\d+)?", v)
+            out["Weight"] = f"{int(round(float(m.group(0))))} lb" if m else None
+
+        elif k == "octagon debut":
+            out["Octagon Debut"] = v
+
+        elif k == "fighting style":
+            out["Fighting Style"] = v
+
+        elif k == "hometown":
+            out["Hometown"] = v
+
+    out["Fighting Style"] = out["Fighting Style"] or "MMA"
