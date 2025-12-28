@@ -1,4 +1,4 @@
-import json, re, requests
+import json, re, os, requests
 from urllib.parse import urljoin, urlparse
 from bs4 import BeautifulSoup
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -193,3 +193,25 @@ def parse_profile(url):
         out[f"Method {i}"] = grab("Method")
 
     return out
+
+def main():
+    rankings = scrape_rankings()
+
+    urls = {f["url"] for fighters in rankings.values() for f in fighters}
+    profiles = {}
+
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
+        futures = {ex.submit(parse_profile, u): u for u in urls}
+        for fut in as_completed(futures):
+            url = futures[fut]
+            profiles[url] = fut.result()
+
+    for fighters in rankings.values():
+        for f in fighters:
+            f.update(profiles.get(f["url"], {}))
+
+    write_json(rankings, "ufc_scrape.json")
+
+
+if __name__ == "__main__":
+    main()
