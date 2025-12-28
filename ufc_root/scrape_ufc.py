@@ -160,3 +160,36 @@ def parse_profile(url):
             out["Striking Accuracy"] = m.group(0) + "%"
         elif "takedown accuracy" in txt:
             out["Takedown Accuracy"] = m.group(0) + "%"
+
+    seq = []
+    for card in soup.select(".c-card-event--athlete-results__matchup"):
+        if len(seq) == 3:
+            break
+        win = (card.select_one(".win a[href]") or {}).get("href", "").lower()
+        loss = (card.select_one(".loss a[href]") or {}).get("href", "").lower()
+        if me in win:
+            seq.append("W")
+        elif me in loss:
+            seq.append("L")
+    out["Last 3 Fights"] = "".join(seq) or None
+
+    for i, h in enumerate(soup.select(".c-card-event--athlete-results__headline")[:3], 1):
+        names = [clean(a.text) for a in h.select("a") if clean(a.text)]
+        out[f"Fight {i}"] = " vs ".join(names) if len(names) >= 2 else None
+
+        date = h.find_next("div", class_="c-card-event--athlete-results__date")
+        out[f"Date {i}"] = clean(date.text) if date else None
+
+        def grab(lbl):
+            lab = h.find_next("div", class_="c-card-event--athlete-results__result-label", string=lbl)
+            if not lab:
+                return None
+            box = lab.find_parent("div", class_="c-card-event--athlete-results__result")
+            val = box.select_one(".c-card-event--athlete-results__result-text") if box else None
+            return clean(val.text) if val else None
+
+        out[f"End Round {i}"] = grab("Round")
+        out[f"Time {i}"] = grab("Time")
+        out[f"Method {i}"] = grab("Method")
+
+    return out
