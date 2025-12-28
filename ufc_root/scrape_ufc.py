@@ -210,7 +210,7 @@ def main():
         for f in fighters:
             f.update(profiles.get(f["url"], {}))
 
-    write_json(rankings, "ufc.json")
+    write_json(rankings, "data/ufc.json")
 
 
 if __name__ == "__main__":
