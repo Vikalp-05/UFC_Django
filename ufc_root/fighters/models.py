@@ -15,12 +15,13 @@ class Fighter(models.Model):
         related_name="fighters"
     )
 
+    #Misc.
     rank = models.CharField(max_length=5)
     name = models.CharField(max_length=120)
     slug = models.SlugField(max_length=140, unique=True)
     ufc_url = models.URLField(blank=True, null=True)
 
-    # --- Bio ---
+    #Bio
     age = models.CharField(max_length=10, blank=True, null=True)
     height = models.CharField(max_length=20, blank=True, null=True)
     weight = models.CharField(max_length=20, blank=True, null=True)
@@ -31,7 +32,7 @@ class Fighter(models.Model):
     hometown = models.CharField(max_length=120, blank=True, null=True)
     record = models.CharField(max_length=20, blank=True, null=True)
 
-    # --- Stats ---
+    #Statistics
     striking_accuracy = models.CharField(max_length=10, blank=True, null=True)
     takedown_accuracy = models.CharField(max_length=10, blank=True, null=True)
     significant_strike_defense = models.CharField(max_length=10, blank=True, null=True)
