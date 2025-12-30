@@ -105,7 +105,7 @@ def parse_profile(url):
             m = re.search(r"\d+(?:\.\d+)?", v)
             if m:
                 inches = int(round(float(m.group(0))))
-                out["Height"] = f"{inches//12}' {inches%12}\""
+                out["Height"] = f"{inches//12}'{inches%12}"
 
         elif k in ("reach", "leg reach"):
             m = re.search(r"\d+(?:\.\d+)?", v)

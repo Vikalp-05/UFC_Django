@@ -3,6 +3,7 @@ from django.db import models
 class WeightClass(models.Model):
     name = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=120, unique=True)
+    
 
     def __str__(self):
         return self.name
@@ -42,6 +43,26 @@ class Fighter(models.Model):
     takedown_average = models.CharField(max_length=10, blank=True, null=True)
     submission_average = models.CharField(max_length=10, blank=True, null=True)
     last_3_fights = models.CharField(max_length=10, blank=True, null=True)
+
+    #Fight Details
+    fight_1 = models.CharField(max_length=200, blank=True, null=True)
+    date_1 = models.CharField(max_length=50, blank=True, null=True)
+    end_round_1 = models.CharField(max_length=10, blank=True, null=True)
+    time_1 = models.CharField(max_length=20, blank=True, null=True)
+    method_1 = models.CharField(max_length=80, blank=True, null=True)
+
+    fight_2 = models.CharField(max_length=200, blank=True, null=True)
+    date_2 = models.CharField(max_length=50, blank=True, null=True)
+    end_round_2 = models.CharField(max_length=10, blank=True, null=True)
+    time_2 = models.CharField(max_length=20, blank=True, null=True)
+    method_2 = models.CharField(max_length=80, blank=True, null=True)
+
+    fight_3 = models.CharField(max_length=200, blank=True, null=True)
+    date_3 = models.CharField(max_length=50, blank=True, null=True)
+    end_round_3 = models.CharField(max_length=10, blank=True, null=True)
+    time_3 = models.CharField(max_length=20, blank=True, null=True)
+    method_3 = models.CharField(max_length=80, blank=True, null=True)
+
 
     def __str__(self):
         return self.name
