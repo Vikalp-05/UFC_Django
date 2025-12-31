@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Weight Classes{% endblock %}
+
+{% block content %}
+<h1>Weight Classes</h1>
+<p class="subtle">Select a division.</p>
+
+<div class="grid">
+  {% for wc in classes %}
+    <a class="card" href="{% url 'weightclass_detail' wc.slug %}">
+      <strong>{{ wc.name }}</strong>
+      <p class="subtle">{{ wc.fighters.count }} fighters</p>
+    </a>
+  {% endfor %}
+</div>
+{% endblock %}
