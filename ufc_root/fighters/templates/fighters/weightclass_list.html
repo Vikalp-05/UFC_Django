@@ -2,14 +2,14 @@
 {% block title %}Weight Classes{% endblock %}
 
 {% block content %}
-<h1>Weight Classes</h1>
-<p class="message">Select a division.</p>
+
+<h1 class="welcome">Welcome to the UFC Rankings</h1>
+
 
 <div class="grid">
   {% for wc in classes %}
-    <a class="card" href="{% url 'weightclass_detail' wc.slug %}">
+    <a href="{% url 'weightclass_detail' wc.slug %}">
       <strong>{{ wc.name }}</strong>
-      <p class="message">{{ wc.fighters.count }} fighters</p>
     </a>
   {% endfor %}
 </div>

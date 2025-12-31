@@ -32,6 +32,11 @@ a {
   font-weight: bold;
 }
 
+.intro {
+  border-color: wheat;
+  border: 10px;
+}
 
-
-
+.welcome {
+  text-align: center;
+}
