@@ -9,7 +9,7 @@
   {% for wc in classes %}
     <a class="card" href="{% url 'weightclass_detail' wc.slug %}">
       <strong>{{ wc.name }}</strong>
-      <p class="subtle">{{ wc.fighters.count }} fighters</p>
+      <p class="message">{{ wc.fighters.count }} fighters</p>
     </a>
   {% endfor %}
 </div>

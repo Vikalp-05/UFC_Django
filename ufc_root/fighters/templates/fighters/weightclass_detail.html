@@ -17,10 +17,10 @@
           {{ f.name }}
         </a>
       </div>
-      <span class="subtle">{{ f.record }}</span>
+      <span class="message">{{ f.record }}</span>
     </li>
   {% empty %}
-    <li class="subtle">No fighters found.</li>
+    <li class="message">No fighters found.</li>
   {% endfor %}
 </ul>
 {% endblock %}

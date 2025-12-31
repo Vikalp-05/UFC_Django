@@ -1,11 +1,7 @@
 {% extends "base.html" %}
 
-{% block title %}
-  {{ fighter.name }}
-{% endblock %}
-
 {% block content %}
-<h1>{{ fighter.name }}</h1>
+<h1 class="fighter">{{ fighter.name }}</h1>
 <p class="message">
   {{ fighter.weight_class.name }} Rank {{ fighter.rank }}
 </p>
