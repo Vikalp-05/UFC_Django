@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{ weight_class.name }}
+{% endblock %}
+
+{% block content %}
+<h1>{{ weight_class.name }}</h1>
+<p class="message">Ranked fighters</p>
+
+<ul class="list">
+  {% for f in fighters %}
+    <li class="list-item {% if f.rank == 'C' %}champ{% endif %}">
+      <div>
+        <span class="rank">{{ f.rank }}</span>
+        <a href="{% url 'fighter_detail' f.slug %}">
+          {{ f.name }}
+        </a>
+      </div>
+      <span class="subtle">{{ f.record }}</span>
+    </li>
+  {% empty %}
+    <li class="subtle">No fighters found.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
