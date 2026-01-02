@@ -33,3 +33,22 @@ def fighter_detail(request, slug):
         "fighters/fighter_detail.html",
         {"fighter": fighter},
     )
+
+from django.shortcuts import render
+from .models import WeightClass, Fighter
+
+def weightclass_list(request):
+    cards = []
+    for wc in WeightClass.objects.all().order_by("name"):
+        fighters = list(Fighter.objects.filter(weight_class=wc))
+
+        def sort_key(f):
+            r = str(f.rank).strip().upper()
+            if r == "C":
+                return (0, 0)          # champion first
+            return (1, int(r))         # then 1,2,3...
+
+        fighters = sorted(fighters, key=sort_key)[:6]  # champ + 1–5
+        cards.append({"wc": wc, "top": fighters})
+
+    return render(request, "fighters/weightclass_list.html", {"cards": cards})

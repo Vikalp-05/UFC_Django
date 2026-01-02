@@ -2,15 +2,29 @@
 {% block title %}Weight Classes{% endblock %}
 
 {% block content %}
+<h1 class="wc-title">Weight Classes</h1>
+<hr class="separator">
 
-<h1 class="welcome">Welcome to the UFC Rankings</h1>
+<div class="wc-grid">
+  {% for card in cards %}
+    <div class="wc-card">
+      <a class="wc-card-title" href="{% url 'weightclass_detail' card.wc.slug %}">
+        {{ card.wc.name }}
+      </a>
 
-
-<div class="grid">
-  {% for wc in classes %}
-    <a href="{% url 'weightclass_detail' wc.slug %}">
-      <strong>{{ wc.name }}</strong>
-    </a>
+      <div class="wc-list">
+        {% for f in card.top %}
+          <a class="wc-row {% if f.rank == 'C' %}wc-row--champ{% endif %}"
+             href="{% url 'fighter_detail' f.slug %}">
+            <span class="wc-rank">{{ f.rank }}</span>
+            <span class="wc-name">{{ f.name }}</span>
+            <span class="wc-name">{{ f.record }}</span>
+          </a>
+        {% empty %}
+          <div class="wc-empty">No fighters found.</div>
+        {% endfor %}
+      </div>
+    </div>
   {% endfor %}
 </div>
 {% endblock %}

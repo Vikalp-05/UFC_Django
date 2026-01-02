@@ -1,42 +1,128 @@
 body {
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  font-family: Arial;
+  line-height: 1.5;
   margin: 0;
-  background: #0b0d10;
-  color: #e9edf1;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
-  color: #e9edf1;
   text-decoration: none;
 }
 
 .container {
-  max-width: 900px;
-  margin: 24px auto;
-  padding: 0 16px;
+  max-width: 1400px;
+  margin: 26px auto;
 }
 
-.navbar {
-  background: #0e1116;
-  border-bottom: 1px solid #1f2a36;
+.navbar{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(14, 17, 22, 0.72);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-.navbar-inner {
-  max-width: 900px;
-  margin: auto;
-  padding: 14px 16px;
+.navbar-inner{
+  width: min(980px, 92vw);
+  margin: 0 auto;
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
-.brand {
+.brand{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
   font-size: 18px;
-  font-weight: bold;
+  letter-spacing: 0.2px;
 }
 
-.intro {
-  border-color: wheat;
-  border: 10px;
+.nav-links{
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.welcome {
+.wc-title{
   text-align: center;
+  margin: 0 0 10px;
+  font-size: 34px;
+  font-weight: 800;
 }
+
+.separator{
+  border: none;
+  border-top: 1px solid rgba(0,0,0,0.18);
+  margin: 14px 0 22px;
+}
+
+.wc-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(280px, 1fr));
+  gap: 40px;
+  justify-content: center;
+}
+
+.wc-card{
+  border-radius: 18px;
+  border-width: 1px; 
+  border: solid;
+  border-color:  rgb(39, 37, 37);
+  padding: 15px 15px 10px;
+}
+
+.wc-card-title{
+  display: block;
+  text-align: center;
+  font-weight: 800;
+  font-size: 20px;
+  margin: 5px 0px 10px;
+  color:white;
+}
+
+.wc-list{
+  display: flex;
+  flex-direction: column;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.wc-row{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 12px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.wc-rank{
+  min-width: 34px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content:center;
+  border-radius: 8px;
+  font-weight: 900;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: rgb(255, 255, 255)
+}
+
+.wc-name{
+  font-size: 16px;
+  font-weight: 650;
+  color: rgb(255, 255, 255);
+}
+
+
+@media (max-width: 720px){
+  .wc-grid-2{
+    grid-template-columns: 1fr;
+  }
+}
+
