@@ -7,6 +7,7 @@ body {
 }
 
 a {
+  color: white;
   text-decoration: none;
 }
 
@@ -42,10 +43,29 @@ a {
   letter-spacing: 0.2px;
 }
 
+.brand:hover {
+  color:rgb(255, 26, 0);
+  transition: 0.3s;
+}
+
 .nav-links{
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.log {
+  border: solid;
+  border-width: 2px;
+  border-radius: 16px;
+  padding: 6px;
+  border-color: rgba(255,255,255,0.10);
+  font-weight: 550;
+}
+
+.log:hover {
+  background-color: rgba(255,255,255,0.10);
+  transition: 0.3s;
 }
 
 .wc-title{
@@ -83,6 +103,11 @@ a {
   font-size: 20px;
   margin: 5px 0px 10px;
   color:white;
+}
+
+.wc-card-title:hover {
+  color:rgb(255, 26, 0);
+  transition: 0.3s
 }
 
 .wc-list{
