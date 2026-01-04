@@ -1,5 +1,5 @@
 body {
-  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.9);
   color: rgb(255, 255, 255);
   font-family: Arial;
   line-height: 1.5;
@@ -11,7 +11,7 @@ a {
   text-decoration: none;
 }
 
-h1{
+h1 {
   text-align: center;
   margin: 0 0 10px;
   font-size: 34px;
@@ -23,15 +23,17 @@ h1{
   margin: 26px auto;
 }
 
-.navbar{
+.navbar {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(14, 17, 22, 0.72);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: rgba(75, 9, 227, 0.72);
+  border-bottom: solid ;
+  border-bottom-width: 1px;
+  border-bottom-color: rgb(56, 41, 63);
 }
 
-.navbar-inner{
+.navbar-inner {
   width: min(980px, 92vw);
   margin: 0 auto;
   padding: 12px 0;
@@ -41,7 +43,7 @@ h1{
   gap: 12px;
 }
 
-.brand{
+.brand {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -55,7 +57,7 @@ h1{
   transition: 0.3s;
 }
 
-.nav-links{
+.nav-links {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -67,22 +69,15 @@ button.log {
   color: white;
   border: solid;
   border-width: 2px;
-  border-radius: 16px;
+  border-radius: 11px;
   padding: 6px;
   border-color: rgba(255,255,255,0.10);
   font-weight: 550;
   line-height: 1;   
 }
 
-button.log {
-  appearance: none;
-  -webkit-appearance: none;
-  font-family: inherit;
-}
-
-
 .log:hover {
-  background-color: rgba(255,255,255,0.10);
+  background-color: rgb(40, 54, 208);
   transition: 0.3s;
 }
 
@@ -91,28 +86,31 @@ button.log {
   font-weight: 550;  
 }
 
-.separator{
+.separator {
   border: solid;
-  border-top: 1px solid rgba(154, 85, 85, 0.18);
-  margin: 14px 0 22px;
+  border-width: 1px;
+  border-color: rgb(36, 35, 35);
+  width: 250px;
+  margin-bottom: 30px;
 }
 
-.wc-grid{
+.wc-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(280px, 1fr));
   gap: 40px;
   justify-content: center;
 }
 
-.wc-card{
+.wc-card {
   border-radius: 18px;
   border-width: 1px; 
   border: solid;
-  border-color:  rgb(39, 37, 37);
+  border-color: rgba(255,255,255,0.08);
+  background-color: rgba(13, 9, 9, 0.1);
   padding: 15px 15px 10px;
 }
 
-.wc-card-title{
+.wc-card-title {
   display: block;
   text-align: center;
   font-weight: 800;
@@ -126,14 +124,14 @@ button.log {
   transition: 0.3s
 }
 
-.wc-list{
+.wc-list {
   display: flex;
   flex-direction: column;
   border-radius: 14px;
   overflow: hidden;
 }
 
-.wc-row{
+.wc-row {
   display: flex;
   align-items: center;
   gap: 14px;
@@ -146,7 +144,7 @@ button.log {
   transition: 0.3s
 }
 
-.wc-rank{
+.wc-rank {
   min-width: 34px;
   height: 26px;
   display: inline-flex;
@@ -159,19 +157,19 @@ button.log {
   color: rgb(255, 255, 255)
 }
 
-.wc-name{
+.wc-name {
   font-size: 16px;
   font-weight: 650;
   color: rgb(255, 255, 255);
 }
 
-.login-wrap{
+.login-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.login-box{
+.login-box {
   margin-top: 90px;
   width: 100%;
   max-width: 360px;
@@ -183,7 +181,7 @@ button.log {
   padding: 40px;
 }
 
-.userpass label{
+.userpass label {
   display: block;
   margin-bottom: 6px;
   font-size: 17px;
@@ -224,7 +222,7 @@ button.log {
 
 }
 
-@media (max-width: 720px){
+@media (max-width: 720px) {
   .wc-grid-2{
     grid-template-columns: 1fr;
   }

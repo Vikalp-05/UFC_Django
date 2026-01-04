@@ -2,16 +2,20 @@
 {% block title %}Sign Up{% endblock %}
 
 {% block content %}
-<h1>Sign Up</h1>
-<hr class="separator">
 
-<form method="post" class="simple-section">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit" class="nav-btn nav-btn--primary">Create Account</button>
-</form>
+<div class="login-wrap">
+  <div class="login-box">
+    <h1>Sign Up</h1>
+    
+    <form method="post" class="userpass">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="login-button">Create Account</button>
+    </form>
 
-<p class="subtle" style="margin-top:12px;">
-  Already have an account? <a href="{% url 'login' %}">Login</a>
-</p>
+    <p>
+      Already have an account? <a class="sign-recommend"href="{% url 'login' %}">Login</a>
+    </p>
+  </div>
+</div>
 {% endblock %}
