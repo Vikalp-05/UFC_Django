@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<div class="login-wrap">
+  <div class="login-box">
+    <h1>Nice to see you again &#128522</h1>
+    <form method="post" class="userpass">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="login-button">Login</button>
+    </form>
+   
+  <p>
+    No account? <a class="sign-recommend"href="{% url 'signup' %}">Sign up</a>
+  </p>
+  </div> 
+</div>
+{% endblock %}

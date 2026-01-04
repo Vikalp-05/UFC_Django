@@ -11,13 +11,23 @@
     <div class="navbar-inner">
     <a class="brand" href="{% url 'weightclass_list' %}">UFC Rankings</a>
     <nav class="nav-links">
+
       {% if user.is_authenticated %}
         <span class="user">Hi {{ user.username }}</span>
-        <a class="log"href="{% url 'logout' %}">Logout</a>
+        <form id="logout-form" method="post" action="{% url 'logout' %}">
+          {% csrf_token %}
+        </form>
+
+        <a href="#" class="log"
+           onclick="document.getElementById('logout-form').submit(); return false;">
+          Logout
+        </a>
+
       {% else %}
         <a class="log"href="{% url 'login' %}">Login</a>
         <a class="log"href="{% url 'signup' %}">Sign Up</a>
       {% endif %}
+      
     </nav>
     </div>
 </header>
