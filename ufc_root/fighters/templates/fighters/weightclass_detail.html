@@ -6,21 +6,33 @@
 
 {% block content %}
 <h1>{{ weight_class.name }}</h1>
-<p class="message">Ranked fighters</p>
 
-<ul class="list">
-  {% for f in fighters %}
-    <li class="list-item {% if f.rank == 'C' %}champ{% endif %}">
-      <div>
-        <span class="rank">{{ f.rank }}</span>
-        <a href="{% url 'fighter_detail' f.slug %}">
-          {{ f.name }}
-        </a>
-      </div>
-      <span class="message">{{ f.record }}</span>
-    </li>
-  {% empty %}
-    <li class="message">No fighters found.</li>
-  {% endfor %}
-</ul>
+<div class="wc-table">
+  <table class="stats-table">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Height</th>
+        <th>Reach</th>
+        <th>Last 3</th>
+        <th>Record</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for f in fighters %}
+      <tr>
+        <td>{{ f.rank }}</td>
+        <td><a href="{% url 'fighter_detail' f.slug %}">{{ f.name }}</a></td>
+        <td>{{ f.age }}</td>
+        <td>{{ f.height }}</td>
+        <td>{{ f.reach }}</td>
+        <td>{{ f.last_3_fights }}</td>
+        <td>{{ f.record }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 {% endblock %}

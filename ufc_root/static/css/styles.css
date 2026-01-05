@@ -159,8 +159,34 @@ button.log {
 
 .wc-name {
   font-size: 16px;
-  font-weight: 650;
   color: rgb(255, 255, 255);
+}
+
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.stats-table th {
+  padding: 15px 15px;
+  text-align: left;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7); 
+  background-color: rgba(0, 0, 0, 0.2); 
+}
+
+.stats-table td {
+  padding: 14px 14px;
+  color: white;
+  border-bottom: solid;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  border-bottom-width: 1px;
+}
+
+/* Hover effect for table rows (fighters only, not header) */
+.stats-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: background-color 0.3s;
 }
 
 .login-wrap {
@@ -191,9 +217,8 @@ button.log {
  .login-button {
   width: 100%;
   padding: 10px 12px;
-  border: solid;
+  border: none;
   border-radius: 9px;
-  border-width: 1px;
   font-size: 17px;
 }
 
@@ -219,7 +244,6 @@ button.log {
   color: rgb(55, 194, 27);
   font-weight: 600;
   margin-left: 4px;
-
 }
 
 @media (max-width: 720px) {
