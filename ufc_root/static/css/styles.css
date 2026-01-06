@@ -1,7 +1,7 @@
 body {
   background: rgba(0, 0, 0, 0.9);
   color: rgb(255, 255, 255);
-  font-family: Arial;
+  font-family: "Roboto";
   line-height: 1.5;
   margin: 0;
 }
@@ -9,6 +9,7 @@ body {
 a {
   color: white;
   text-decoration: none;
+  font-family: "Roboto";
 }
 
 h1 {
@@ -34,7 +35,7 @@ h1 {
 }
 
 .navbar-inner {
-  width: min(980px, 92vw);
+  width: min(1650px, 92vw);
   margin: 0 auto;
   padding: 12px 0;
   display: flex;
