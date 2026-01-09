@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import WeightClass, Fighter
+from django.db.models import Case, When, IntegerField
 
 
 def weightclass_list(request):
@@ -13,7 +14,18 @@ def weightclass_list(request):
 
 def weightclass_detail(request, slug):
     weight_class = get_object_or_404(WeightClass, slug=slug)
-    fighters = weight_class.fighters.all().order_by("rank")
+    fighters = (
+        Fighter.objects
+        .filter(weight_class=weight_class)
+        .annotate(
+            sort_rank=Case(
+                When(rank="C", then=0),          # Champion first
+                default=1,
+                output_field=IntegerField(),
+            )
+        )
+        .order_by("rank_number")
+    )
 
     return render(
         request,

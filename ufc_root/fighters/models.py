@@ -18,6 +18,7 @@ class Fighter(models.Model):
 
     #Misc.
     rank = models.CharField(max_length=5)
+    rank_number = models.IntegerField(null=True)
     name = models.CharField(max_length=120)
     slug = models.SlugField(max_length=140, unique=True)
     ufc_url = models.URLField(blank=True, null=True)

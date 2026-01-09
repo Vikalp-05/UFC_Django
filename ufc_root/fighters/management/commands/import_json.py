@@ -1,11 +1,7 @@
 import json
-##
 from pathlib import Path
 from django.core.management.base import BaseCommand
 from django.utils.text import slugify
-
-#
-
 from fighters.models import WeightClass, Fighter
 
 
@@ -45,11 +41,19 @@ class Command(BaseCommand):
                 if not name:
                     continue
 
+                rank = fighter_data.get("rank")
+
+                rank_number = None
+                if rank != "C" and rank is not None:
+                    rank_number = int(rank)
+
+
                 fighter, created = Fighter.objects.update_or_create(
                     slug=slugify(name),
                     defaults={
                         "weight_class": weight_class,
                         "rank": fighter_data.get("rank"),
+                        "rank_number": rank_number,
                         "name": name,
                         "ufc_url": fighter_data.get("url"),
                         "record": fighter_data.get("Record"),
