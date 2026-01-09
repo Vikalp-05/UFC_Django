@@ -1,72 +1,140 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="fighter">{{ fighter.name }}</h1>
-<p class="message">
-  {{ fighter.weight_class.name }} Rank {{ fighter.rank }}
-</p>
+<div class="fighter-profile">
+  <div class="profile-header">
+    <h1 class="fighter-name">{{ fighter.name }}</h1>
+    <div class="fighter-record">{{ fighter.record }}</div>
+  </div>
 
-<div class="detail">
+  <div class="detail-container">
+    <div class="profile-section">
+      <div class="section-header">
+        <h2><i class="icon-user"></i> Bio & Profile</h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-label">Age</span>
+          <span class="stat-value">{{ fighter.age }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Height</span>
+          <span class="stat-value">{{ fighter.height }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Weight</span>
+          <span class="stat-value">{{ fighter.weight }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Reach</span>
+          <span class="stat-value">{{ fighter.reach }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Leg Reach</span>
+          <span class="stat-value">{{ fighter.leg_reach }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Style</span>
+          <span class="stat-value">{{ fighter.fighting_style }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Hometown</span>
+          <span class="stat-value">{{ fighter.hometown }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Octagon Debut</span>
+          <span class="stat-value">{{ fighter.octagon_debut }}</span>
+        </div>
+      </div>
+    </div>
 
-  <div class="card">
-    <h3>Bio</h3>
-    <div class="kv">
-      <div><p class="k">Record</p><p class="v">{{ fighter.record }}</p></div>
-      <div><p class="k">Age</p><p class="v">{{ fighter.age }}</p></div>
-      <div><p class="k">Height</p><p class="v">{{ fighter.height }}</p></div>
-      <div><p class="k">Weight</p><p class="v">{{ fighter.weight }}</p></div>
-      <div><p class="k">Reach</p><p class="v">{{ fighter.reach }}</p></div>
-      <div><p class="k">Leg Reach</p><p class="v">{{ fighter.leg_reach }}</p></div>
-      <div><p class="k">Fighting Style</p><p class="v">{{ fighter.fighting_style }}</p></div>
-      <div><p class="k">Hometown</p><p class="v">{{ fighter.hometown }}</p></div>
-      <div><p class="k">Octagon Debut</p><p class="v">{{ fighter.octagon_debut }}</p></div>
+    <div class="profile-section">
+      <div class="section-header">
+        <h2><i class="icon-stats"></i> Fight Statistics</h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-label">Striking Accuracy</span>
+          <span class="stat-value highlight">{{ fighter.striking_accuracy }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Takedown Accuracy</span>
+          <span class="stat-value highlight">{{ fighter.takedown_accuracy }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Strike Defense</span>
+          <span class="stat-value">{{ fighter.significant_strike_defense }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Takedown Defense</span>
+          <span class="stat-value">{{ fighter.takedown_defense }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Strikes Landed/min</span>
+          <span class="stat-value">{{ fighter.sig_strikes_landed }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Strikes Absorbed/min</span>
+          <span class="stat-value">{{ fighter.sig_strikes_absorbed }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Takedown Avg/15min</span>
+          <span class="stat-value">{{ fighter.takedown_average }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Submission Avg/15min</span>
+          <span class="stat-value">{{ fighter.submission_average }}</span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- STATS -->
-  <div class="card">
-    <h3>Stats</h3>
-    <div class="kv">
-      <div><p class="k">Striking Accuracy</p><p class="v">{{ fighter.striking_accuracy }}</p></div>
-      <div><p class="k">Takedown Accuracy</p><p class="v">{{ fighter.takedown_accuracy }}</p></div>
-      <div><p class="k">Sig. Strike Defense</p><p class="v">{{ fighter.significant_strike_defense }}</p></div>
-      <div><p class="k">Takedown Defense</p><p class="v">{{ fighter.takedown_defense }}</p></div>
-      <div><p class="k">Sig. Strikes Landed</p><p class="v">{{ fighter.sig_strikes_landed }}</p></div>
-      <div><p class="k">Sig. Strikes Absorbed</p><p class="v">{{ fighter.sig_strikes_absorbed }}</p></div>
-      <div><p class="k">Takedown Avg</p><p class="v">{{ fighter.takedown_average }}</p></div>
-      <div><p class="k">Submission Avg</p><p class="v">{{ fighter.submission_average }}</p></div>
-      <div><p class="k">Last 3 Fights</p><p class="v">{{ fighter.last_3_fights }}</p></div>
+  <div class="recent-fights">
+    <div class="section-header">
+      <h2><i class="icon-fight"></i> Recent Fights</h2>
+      <div class="last-3-label">Last 3: {{ fighter.last_3_fights }}</div>
+    </div>
+    
+    <div class="fight-cards">
+      <div class="fight-card">
+        <div class="fight-number">1</div>
+        <div class="fight-details">
+          <h3>{{ fighter.fight_1 }}</h3>
+          <div class="fight-meta">
+            <span class="date">{{ fighter.date_1 }}</span>
+            <span class="round">Round {{ fighter.end_round_1 }}</span>
+            <span class="time">{{ fighter.time_1 }}</span>
+          </div>
+          <div class="fight-result">{{ fighter.method_1 }}</div>
+        </div>
+      </div>
+      
+      <div class="fight-card">
+        <div class="fight-number">2</div>
+        <div class="fight-details">
+          <h3>{{ fighter.fight_2 }}</h3>
+          <div class="fight-meta">
+            <span class="date">{{ fighter.date_2 }}</span>
+            <span class="round">Round {{ fighter.end_round_2 }}</span>
+            <span class="time">{{ fighter.time_2 }}</span>
+          </div>
+          <div class="fight-result">{{ fighter.method_2 }}</div>
+        </div>
+      </div>
+      
+      <div class="fight-card">
+        <div class="fight-number">3</div>
+        <div class="fight-details">
+          <h3>{{ fighter.fight_3 }}</h3>
+          <div class="fight-meta">
+            <span class="date">{{ fighter.date_3 }}</span>
+            <span class="round">Round {{ fighter.end_round_3 }}</span>
+            <span class="time">{{ fighter.time_3 }}</span>
+          </div>
+          <div class="fight-result">{{ fighter.method_3 }}</div>
+        </div>
+      </div>
     </div>
   </div>
-
 </div>
-
-<!-- LAST 3 FIGHT DETAILS -->
-<div class="card" style="margin-top:16px;">
-  <h3>Last 3 Fight Details</h3>
-  <ul class="list">
-    <li>
-      <strong>1.</strong>
-      {{ fighter.fight_1 }} —
-      {{ fighter.date_1 }} —
-      R{{ fighter.end_round_1 }} @ {{ fighter.time_1 }} —
-      {{ fighter.method_1 }}
-    </li>
-    <li>
-      <strong>2.</strong>
-      {{ fighter.fight_2 }} —
-      {{ fighter.date_2 }} —
-      R{{ fighter.end_round_2 }} @ {{ fighter.time_2 }} —
-      {{ fighter.method_2 }}
-    </li>
-    <li>
-      <strong>3.</strong>
-      {{ fighter.fight_3 }} —
-      {{ fighter.date_3 }} —
-      R{{ fighter.end_round_3 }} @ {{ fighter.time_3 }} —
-      {{ fighter.method_3 }}
-    </li>
-  </ul>
-</div>
-
 {% endblock %}

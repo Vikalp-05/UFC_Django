@@ -184,11 +184,184 @@ button.log {
   border-bottom-width: 1px;
 }
 
-/* Hover effect for table rows (fighters only, not header) */
 .stats-table tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.2);
   transition: background-color 0.3s;
 }
+
+.fighter-profile {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: #4b09e3;
+}
+
+.fighter-name {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.fighter-record {
+  font-size: 1.4rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.08);
+  display: inline-block;
+  padding: 10px 20px;
+  border: solid;
+  border-width: 2px ;
+  border-radius: 20px;
+  border-color: #4b09e3;
+}
+
+.detail-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: solid;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.last-3-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: rgba(4, 56, 244, 0.637);
+  padding: 6px 12px;
+  border-radius: 6px;
+  border-width: 1px; 
+  border: solid;
+  border-color: #2209e3;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  border: solid rgba(255, 255, 255, 0.08);
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.stat-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+}
+
+.recent-fights {
+  background: rgba(13, 9, 9, 0.1);
+  border-radius: 18px;
+  padding: 25px;
+  border: solid;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.fight-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.fight-card {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.fight-number {
+  background: #4b09e3;
+  color: white;
+  font-weight: 800;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  padding: 15px;
+}
+
+.fight-details {
+  flex: 1;
+  padding: 20px;
+}
+
+.fight-details h3 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: white;
+  font-weight: 600;
+}
+
+.fight-meta {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.fight-meta span {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  border: solid;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.fight-result {
+  font-weight: 600;
+}
+
 
 .login-wrap {
   display: flex;
@@ -245,10 +418,4 @@ button.log {
   color: rgb(55, 194, 27);
   font-weight: 600;
   margin-left: 4px;
-}
-
-@media (max-width: 720px) {
-  .wc-grid-2{
-    grid-template-columns: 1fr;
-  }
 }
