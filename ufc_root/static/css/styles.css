@@ -37,7 +37,7 @@ h1 {
 .navbar-inner {
   width: min(1650px, 92vw);
   margin: 0 auto;
-  padding: 12px 0;
+  padding: 25px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
