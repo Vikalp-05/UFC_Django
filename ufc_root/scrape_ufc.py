@@ -204,7 +204,10 @@ def main():
         futures = {ex.submit(parse_profile, u): u for u in urls}
         for fut in as_completed(futures):
             url = futures[fut]
-            profiles[url] = fut.result()
+            try:
+                profiles[url] = fut.result()
+            except Exception as e:
+                profiles[url] = {}
 
     for fighters in rankings.values():
         for f in fighters:

@@ -5,14 +5,6 @@ from django.core.mail import send_mail, get_connection
 from .contact import ContactForm
 from .models import WeightClass, Fighter
 
-def weightclass_list(request):
-    classes = WeightClass.objects.all().order_by("name")
-    return render(
-        request,
-        "fighters/weightclass_list.html",
-        {"classes": classes},
-    )
-
 def weightclass_detail(request, slug):
     weight_class = get_object_or_404(WeightClass, slug=slug)
     fighters = (
