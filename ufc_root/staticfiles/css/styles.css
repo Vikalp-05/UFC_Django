@@ -1,0 +1,422 @@
+body {
+  background: rgba(0, 0, 0, 0.9);
+  color: rgb(255, 255, 255);
+  font-family: "Roboto";
+  line-height: 1.5;
+  margin: 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-family: "Roboto";
+}
+
+h1 {
+  text-align: center;
+  margin: 0 0 10px;
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 26px auto;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(75, 9, 227, 0.72);
+  border-bottom: solid ;
+  border-bottom-width: 1px;
+  border-bottom-color: rgb(56, 41, 63);
+}
+
+.navbar-inner {
+  width: min(1650px, 92vw);
+  margin: 0 auto;
+  padding: 25px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+}
+
+.brand:hover {
+  color:rgb(255, 26, 0);
+  transition: 0.3s;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+a.log,
+button.log {
+  background-color: black;
+  color: white;
+  border: solid;
+  border-width: 2px;
+  border-radius: 11px;
+  padding: 6px;
+  border-color: rgba(255,255,255,0.10);
+  font-weight: 550;
+  line-height: 1;   
+}
+
+.log:hover {
+  background-color: rgb(40, 54, 208);
+  transition: 0.3s;
+}
+
+
+.user {
+  font-weight: 550;  
+}
+
+.separator {
+  border: solid;
+  border-width: 1px;
+  border-color: rgb(36, 35, 35);
+  width: 250px;
+  margin-bottom: 30px;
+}
+
+.wc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(280px, 1fr));
+  gap: 40px;
+  justify-content: center;
+}
+
+.wc-card {
+  border-radius: 18px;
+  border-width: 1px; 
+  border: solid;
+  border-color: rgba(255,255,255,0.08);
+  background-color: rgba(13, 9, 9, 0.1);
+  padding: 15px 15px 10px;
+}
+
+.wc-card-title {
+  display: block;
+  text-align: center;
+  font-weight: 800;
+  font-size: 20px;
+  margin: 5px 0px 10px;
+  color:white;
+}
+
+.wc-card-title:hover {
+  color:rgb(255, 26, 0);
+  transition: 0.3s
+}
+
+.wc-list {
+  display: flex;
+  flex-direction: column;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.wc-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 12px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.wc-row:hover {
+  background-color: rgba(255,255,255,0.2);
+  transition: 0.3s
+}
+
+.wc-rank {
+  min-width: 34px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content:center;
+  border-radius: 8px;
+  font-weight: 900;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: rgb(255, 255, 255)
+}
+
+.wc-name {
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+}
+
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.stats-table th {
+  padding: 15px 15px;
+  text-align: left;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7); 
+  background-color: rgba(0, 0, 0, 0.2); 
+}
+
+.stats-table td {
+  padding: 14px 14px;
+  color: white;
+  border-bottom: solid;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  border-bottom-width: 1px;
+}
+
+.stats-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: background-color 0.3s;
+}
+
+.fighter-profile {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: #4b09e3;
+}
+
+.fighter-name {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.fighter-record {
+  font-size: 1.4rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.08);
+  display: inline-block;
+  padding: 10px 20px;
+  border: solid;
+  border-width: 2px ;
+  border-radius: 20px;
+  border-color: #4b09e3;
+}
+
+.detail-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: solid;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.last-3-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: rgba(4, 56, 244, 0.637);
+  padding: 6px 12px;
+  border-radius: 6px;
+  border-width: 1px; 
+  border: solid;
+  border-color: #2209e3;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  border: solid rgba(255, 255, 255, 0.08);
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.stat-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+}
+
+.recent-fights {
+  background: rgba(13, 9, 9, 0.1);
+  border-radius: 18px;
+  padding: 25px;
+  border: solid;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.fight-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.fight-card {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.fight-number {
+  background: #4b09e3;
+  color: white;
+  font-weight: 800;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  padding: 15px;
+}
+
+.fight-details {
+  flex: 1;
+  padding: 20px;
+}
+
+.fight-details h3 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: white;
+  font-weight: 600;
+}
+
+.fight-meta {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.fight-meta span {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  border: solid;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.fight-result {
+  font-weight: 600;
+}
+
+
+.login-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-box {
+  margin-top: 90px;
+  width: 100%;
+  max-width: 360px;
+  border: solid;
+  border-width: 1px;
+  border-radius: 18px;
+  border-color: rgba(255,255,255,0.08);
+  background-color: rgba(255,255,255,0.1);
+  padding: 40px;
+}
+
+.userpass label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 17px;
+  font-weight: 600;
+}
+ .userpass input,
+ .login-button {
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 9px;
+  font-size: 17px;
+}
+
+.login-button {
+  background-color: rgb(59, 59, 198);
+  color: white;
+  border: none;
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.userpass input:focus {
+  outline: none;
+}
+
+.userpass button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.sign-recommend {
+  color: rgb(55, 194, 27);
+  font-weight: 600;
+  margin-left: 4px;
+}
+
