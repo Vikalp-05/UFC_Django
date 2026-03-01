@@ -3,22 +3,18 @@ from pathlib import Path
 from django.core.management.base import BaseCommand
 from django.utils.text import slugify
 from fighters.models import WeightClass, Fighter
+from scrape_ufc import main as scrape_main
 
 
 class Command(BaseCommand):
     help = "Import UFC rankings and fighter data from JSON file"
 
-    def add_arguments(self, parser):
-        parser.add_argument(
-            "--file",
-            type=str,
-            default="data/scrape_ufc.json",
-            help="Path to UFC rankings JSON file",
-        )
-
     def handle(self, *args, **options):
-        file_path = Path(options["file"])
+        self.stdout.write("Starting UFC scraper...")
+        scrape_main()  
+        self.stdout.write(self.style.SUCCESS("Scraper finished successfully!"))
 
+        file_path = Path("data/ufc.json")
         if not file_path.exists():
             self.stderr.write(f"File not found: {file_path}")
             return
